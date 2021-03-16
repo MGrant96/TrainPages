@@ -1,5 +1,3 @@
-const { kStringMaxLength } = require("buffer");
-
 module.exports = mongoose => {
     const Devices = mongoose.model(
       "tutorial",
