@@ -5,7 +5,8 @@ module.exports = mongoose => {
         {
           deviceName: String,
           lastSync: Date,
-          noOfFaults: Number
+          noOfFaults: Number,
+          faultsReviewed: Boolean
         },
         { timestamps: true }
       )
