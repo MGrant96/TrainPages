@@ -10,7 +10,7 @@ module.exports = app => {
     router.get("/", devices.findAll);
   
     // Retrieve all published Device
-    router.get("/published", devices.findAllPublished);
+    router.get("/reviewed", devices.findAllReviewed);
   
     // Retrieve a single Device with id
     router.get("/:id", devices.findOne);

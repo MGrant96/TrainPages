@@ -118,7 +118,7 @@ exports.deleteAll = (req, res) => {
     Device.deleteMany({})
       .then(data => {
         res.send({
-          message: `${data.deletedCount} Device were deleted successfully!`
+          message: `${data.deletedCount} Device(s) were deleted successfully!`
         });
       })
       .catch(err => {
@@ -130,8 +130,8 @@ exports.deleteAll = (req, res) => {
   };
 
 // Find all published devices
-exports.findAllPublished = (req, res) => {
-    Device.find({ published: true })
+exports.findAllReviewed = (req, res) => {
+    Device.find({ faultsReviewed: true })
       .then(data => {
         res.send(data);
       })

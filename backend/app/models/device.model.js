@@ -1,7 +1,5 @@
 module.exports = mongoose => {
-    const Devices = mongoose.model(
-      "tutorial",
-      mongoose.Schema(
+  var schema = mongoose.Schema(
         {
           deviceName: String,
           lastSync: Date,
@@ -9,7 +7,6 @@ module.exports = mongoose => {
           faultsReviewed: Boolean
         },
         { timestamps: true }
-      )
     );
 
     schema.method("toJSON", function() {
