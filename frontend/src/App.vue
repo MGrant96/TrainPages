@@ -1,38 +1,34 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Crazy Train Devices</router-link>
-      <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/devices" class="nav-link">Devices</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/add" class="nav-link">Add</router-link>
-        </li>
+  <v-app>
+    <v-app-bar app color="deep-purple accent-4"
+      dark>
+      <div class="d-flex align-center mr-2">
+        Device List
       </div>
-    </nav>
+      <v-spacer></v-spacer>
 
-    <div class="container mt-3">
+      <v-btn to="/devices" text>
+        Device List
+      </v-btn>
+
+      <v-btn to="/add" text>
+        Add a Device
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
       <router-view />
-    </div>
-  </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 
 export default {
   name: 'App',
-  
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>

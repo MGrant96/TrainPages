@@ -25,7 +25,7 @@ class DeviceDataService {
     return http.delete(`/devices`);
   }
 
-  findByTitle(title) {
+  findByDeviceName(deviceName) {
     return http.get(`/devices?deviceName=${deviceName}`);
   }
 }
