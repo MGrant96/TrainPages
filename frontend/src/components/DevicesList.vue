@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" class="list px-3 mx-auto">
     <v-col cols="12" md="8">
-      <v-text-field v-model="title" label="Search by Device Name"></v-text-field>
+      <v-text-field v-model="deviceName" label="Search by Device Name"></v-text-field>
     </v-col>
 
     <v-col cols="12" md="4">

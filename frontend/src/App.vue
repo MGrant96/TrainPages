@@ -3,7 +3,7 @@
     <v-app-bar app color="deep-purple accent-4"
       dark>
       <div class="d-flex align-center mr-2">
-        Device List
+        Edge Device Manager
       </div>
       <v-spacer></v-spacer>
 
