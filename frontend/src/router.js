@@ -21,6 +21,12 @@ export default new Router({
       path: "/add",
       name: "add",
       component: () => import("./components/AddDevice")
-    }
+    },
+    {
+      path: "/alerts",
+      name: "alerts",
+      component: () => import("./components/AlertsList")
+    },
+    
   ]
 });

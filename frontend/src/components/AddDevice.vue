@@ -18,45 +18,19 @@
           required
         ></v-text-field>
 
-        <!-- <v-menu
-            ref="open"
-            :close-on-content-click="false"
-            v-model="open"
-            :nudge-right="40"
-            lazy
-            transition="scale-transition"
-            offset-y
-            full-width
-            >
-            <v-text-field
-                slot="activator"
-                v-model="dateFormatted"
-                :label="label"
-                placeholder="dia/mês/ano"
-                @blur="date = parseDate(dateFormatted)"
-            ></v-text-field>
-        <v-date-picker v-model="date" no-title @input="open = false"></v-date-picker>
-</v-menu> -->
-        <!-- <v-date-picker
-            v-model="picker"
-            year-icon="mdi-calendar-blank"
-            prev-icon="mdi-skip-previous"
-            next-icon="mdi-skip-next"
-        ></v-date-picker> -->
-        
-        <!-- <v-text-field
-          v-model="device.noOfFaults"
-          :rules="[(v) => !!v || 'Number of Faults is required']"
-          label="Number of Faults?"
+        <v-text-field
+          v-model="device.noOfAlerts"
+          :rules="[(v) => !!v || 'Number of Alerts is required']"
+          label="Number of Alerts?"
           required
-        ></v-text-field> -->
+        ></v-text-field> 
           
         <!-- faultsReviewed: Boolean -->
-        <!-- <v-switch
+        <v-switch
           color="deep-purple accent-4"
-          v-model="device.faultsReviewed"
-          label="Faults Reviewed?"
-        ></v-switch> -->
+          v-model="device.alertsReviewed"
+          label="Alerts Reviewed?"
+        ></v-switch> 
 
         </v-form>
 
@@ -92,8 +66,8 @@ export default {
         id: null,
         deviceName: "",
         lastSync: "",
-        // noOfFaults: "",
-        // faultsReviewed: false
+        noOfAlerts: 0,
+        alertsReviewed: false
       },
       submitted: false,
     };
@@ -103,6 +77,8 @@ export default {
       var data = {
         deviceName: this.device.deviceName,
         lastSync: this.device.lastSync,
+        noOfAlerts: this.device.noOfAlerts,
+        alertsReviewed: this.device.alertsReviewed
       };
 
       DeviceDataService.create(data)

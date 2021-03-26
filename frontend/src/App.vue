@@ -1,21 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="deep-purple accent-4"
-      dark>
-      <div class="d-flex align-center mr-2">
-        Edge Device Manager
-      </div>
-      <v-spacer></v-spacer>
-
-      <v-btn to="/devices" text>
-        Device List
-      </v-btn>
-
-      <v-btn to="/add" text>
-        Add a Device
-      </v-btn>
-    </v-app-bar>
-
+    <Navbar />  
     <v-main>
       <router-view />
     </v-main>
@@ -24,7 +9,10 @@
 
 <script>
 
+import Navbar from './components/Navbar'
+
 export default {
+  components: { Navbar },
   name: 'App',
 
   data: () => ({

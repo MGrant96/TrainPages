@@ -13,8 +13,8 @@ exports.create = (req, res) => {
     const device = new Device({
       deviceName: req.body.deviceName,
       lastSync: req.body.lastSync,
-      noOfFaults: req.body.noOfFaults,
-      faultsReviewed: req.body.faultsReviewed ? req.body.faultsReviewed : false
+      noOfAlerts: req.body.noOfAlerts,
+      alertsReviewed: req.body.alertsReviewed ? req.body.alertsReviewed : false
     });
   
     // Save device in the database
@@ -131,7 +131,7 @@ exports.deleteAll = (req, res) => {
 
 // Find all published devices
 exports.findAllReviewed = (req, res) => {
-    Device.find({ faultsReviewed: true })
+    Device.find({ alertsReviewed: true })
       .then(data => {
         res.send(data);
       })

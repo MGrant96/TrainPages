@@ -12,7 +12,7 @@
 
     <v-col cols="12" sm="12">
       <v-card class="mx-auto" tile>
-        <v-card-title>Devices</v-card-title>
+        <v-card-title>Devices List</v-card-title>
 
         <v-data-table
           :headers="headers"
@@ -21,16 +21,24 @@
           :hide-default-footer="true"
         >
           <template v-slot:[`item.actions`]="{ item }">
-            <v-icon small class="mr-2" @click="editDevice(item.id)">mdi-pencil</v-icon>
-            <v-icon small @click="deleteDevice(item.id)">mdi-delete</v-icon>
+            <v-icon small class="mx-2" @click="editDevice(item.id)">mdi-pencil</v-icon>
+            <v-icon small class="mx-2" @click="viewDeviceAlerts(item.id)">mdi-alert</v-icon>
+            <v-icon small class="mx-2" @click="deleteDevice(item.id)">mdi-delete</v-icon>
           </template>
         </v-data-table>
 
-        <v-card-actions v-if="devices.length > 0">
+        <router-link to="/add" tag="v-btn">
+            <v-btn small color="success" class="mx-2 my-2" @click="add">Add Device</v-btn>
+        </router-link>
+        <v-btn small color="error" class="mx-2 my-2" @click="removeAllDevices">
+            Remove All
+        </v-btn>
+      
+        <!-- <v-card-actions v-if="devices.length > 0">
           <v-btn small color="error" @click="removeAllDevices">
             Remove All
           </v-btn>
-        </v-card-actions>
+        </v-card-actions> -->
       </v-card>
     </v-col>
   </v-row>
@@ -47,6 +55,7 @@ export default {
       headers: [
         { text: "Device Name", align: "start", sortable: false, value: "deviceName" },
         { text: "Last Synced", value: "lastSync", sortable: false },
+        { text: "Number of Alerts", value: "noOfAlerts", sortable: false},
         { text: "Status", value: "status", sortable: false },
         { text: "Actions", value: "actions", sortable: false },
       ],
@@ -109,7 +118,8 @@ export default {
         id: device.id,
         deviceName: device.deviceName.length > 30 ? device.deviceName.substr(0, 30) + "..." : device.deviceName,
         lastSync: device.lastSync.length > 30 ? device.lastSync.substr(0, 30) + "..." : device.lastSync,
-        status: device.reviewed ? "Reviewed" : "Pending",
+        noOfAlerts: device.noOfAlerts,
+        status: device.alertsReviewed ? "Reviewed" : "Pending",
       };
     },
   },

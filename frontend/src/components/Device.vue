@@ -17,12 +17,19 @@
         required
       ></v-text-field>
 
+      <v-text-field
+        v-model="currentDevice.noOfAlerts"
+        :rules="[(v) => !!v || 'Number of Alerts is required']"
+        label="Number of Alerts"
+        required
+      ></v-text-field>
+
       <label><strong>Status:</strong></label>
-      {{ currentDevice.reviewed ? "Reviewed" : "Pending" }}
+      {{ currentDevice.alertsReviewed ? "Reviewed" : "Pending" }}
 
       <v-divider class="my-5"></v-divider>
 
-      <v-btn v-if="currentDevice.reviewed"
+      <v-btn v-if="currentDevice.alertsReviewed"
         @click="updateReviewed(false)"
         color="primary" small class="mr-2"
       >
@@ -76,14 +83,16 @@ export default {
     },
     updateReviewed(status) {
       var data = {
-        id: this.currentDevice.id,
-        deviceName: this.currentDevice.deviceName,
-        lastSync: this.currentDevice.lastSync,
-        reviewed: status,
+        // Dont actually need all this
+        // id: this.currentDevice.id,
+        // deviceName: this.currentDevice.deviceName,
+        // lastSync: this.currentDevice.lastSync,
+        // noOfAlerts: this.currentDevice.noOfAlerts,
+        alertsReviewed: status,
       };
       DeviceDataService.update(this.currentDevice.id, data)
         .then((response) => {
-          this.currentDevice.reviewed = status;
+          this.currentDevice.alertsReviewed = status;
           console.log(response.data);
         })
         .catch((e) => {

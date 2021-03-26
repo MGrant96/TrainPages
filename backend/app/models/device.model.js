@@ -3,12 +3,12 @@ module.exports = mongoose => {
         {
           deviceName: String,
           lastSync: Date,
-          noOfFaults: Number,
-          faultsReviewed: Boolean
+          noOfAlerts: Number,
+          alertsReviewed: Boolean
         },
         { timestamps: true }
     );
-
+ 
     schema.method("toJSON", function() {
         const { __v, _id, ...object } = this.toObject();
         object.id = _id;
