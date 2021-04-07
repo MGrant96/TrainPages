@@ -20,6 +20,12 @@
                 <td>Reviewed</td>
                 <td>M.Grant (or Emp ID)</td>
             </tr>
+            <tr>
+                <td>Device 1</td>
+                <td>000003</td>
+                <td>Pending</td>
+                <td>Pending</td>
+            </tr>
         </table>
     </div>
 </template>

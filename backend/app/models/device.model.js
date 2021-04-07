@@ -5,6 +5,11 @@ module.exports = mongoose => {
           lastSync: Date,
           noOfAlerts: Number,
           alertsReviewed: Boolean
+          // alert[i]: {
+            // reviewed: Boolean,
+            // whoReviewed: string,
+            // telemetry/gpsData:
+          // }
         },
         { timestamps: true }
     );
